@@ -18,6 +18,7 @@ var pkg = require('./package.json');
 
 interface IPostCSSDeclaration {
     value: string;
+    selector: string;
 }
 
 interface IPostCSS {
@@ -39,15 +40,15 @@ class Processor {
 	 * Executes the conversion from `mm` to `px` values.
 	 * 
 	 */
-    execute(value: string) {
-        var mm: number = ~~(value.toLowerCase().replace('mm', ''));
+    execute(value: string, match: string) {
+        var mm: number = ~~(match.toLowerCase().replace('mm', ''));
         var result = this.dpi * mm / 25.4;
 
         if (this.round) {
             result = Math.round(result);
         }
 
-        return `${result}px`;
+        return value.replace(match, `${result}px`);
     }
 
 }
@@ -61,8 +62,12 @@ export = (() => {
 
         return (css: IPostCSS) => {
             css.eachDecl((declaration: IPostCSSDeclaration) => {
-                if ((declaration.value.match(Processor.REGEXE) || []).length) {
-                    declaration.value = processor.execute(declaration.value);
+                var matches = declaration.value.match(Processor.REGEXE) || [];
+
+                if (matches.length) {
+                    matches.forEach((match) => {
+                        declaration.value = processor.execute(declaration.value, match);
+                    });
                 }
             });
         }

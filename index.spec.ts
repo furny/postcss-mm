@@ -48,4 +48,8 @@ describe(pkg.name, () => {
         test('.bar{margin: 5px}', '.bar{margin: 5px}', {dpi: 300, round: false}, done);        
     });
 
+    it('should be able to handle multiple `mm` usages', (done) => {
+        test('.bar{margin: 5mm 20mm}', '.bar{margin: 24px 94px}', {dpi: 120}, done);                
+    });
+
 });

@@ -61,7 +61,7 @@ export = (() => {
 
         return (css: IPostCSS) => {
             css.eachDecl((declaration: IPostCSSDeclaration) => {
-                if (declaration.value.match(Processor.REGEXE).length) {
+                if ((declaration.value.match(Processor.REGEXE) || []).length) {
                     declaration.value = processor.execute(declaration.value);
                 }
             });

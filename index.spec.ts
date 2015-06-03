@@ -44,4 +44,8 @@ describe(pkg.name, () => {
         test('.bar{margin: 5mm}', '.bar{margin: 59.05511811023622px}', {dpi: 300, round: false}, done);        
     });
 
+    it('should not throw an error when a selector does not have a single `mm` definition', (done) => {
+        test('.bar{margin: 5px}', '.bar{margin: 5px}', {dpi: 300, round: false}, done);        
+    });
+
 });

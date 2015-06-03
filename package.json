@@ -2,10 +2,21 @@
   "name": "postcss-mm",
   "version": "1.0.0",
   "description": "PostCSS plugin for converting `mm` values to `px`",
+  "author": "André König <andre.koenig@posteo.de>",
+  "scripts": {
+    "tsd": "tsd reinstall -so",
+    "compile": "tsc --target es5 --module commonjs ./**/*.ts",
+    "build": "npm i && npm run tsd && npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:furny/postcss-mm"
+  },
   "dependencies": {
     "postcss": "^4.1.11"
   },
   "devDependencies": {
+    "tsd": "^0.6.0-beta.5",
     "typescript": "^1.5.0-beta"
   }
 }

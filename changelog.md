@@ -1,5 +1,6 @@
 # UNRELEASED
 
+  * ffc0020 fix: problem with multiple `mm` values
   * 8575244 fix: test import
 
 # 1.0.1 (2015-06-03)

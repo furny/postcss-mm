@@ -1,7 +1,7 @@
 {
   "name": "postcss-mm",
   "version": "1.0.0",
-  "description": "PostCSS plugin for converting `mm` values to `px`",
+  "description": "PostCSS processor for converting `mm` to `px` values",
   "author": "André König <andre.koenig@posteo.de>",
   "scripts": {
     "tsd": "tsd reinstall -so",

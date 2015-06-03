@@ -28,11 +28,11 @@ interface Configuration {
     dpi: number;
 }
 
-class MMCommand {
+class Processor {
 
     static REGEXE = /[0-9]+mm/gi;
 
-    constructor(private dpi: number, private round = true) {}
+    constructor(private dpi = 72, private round = true) {}
 
 	/**
 	 * Executes the conversion from `mm` to `px` values.
@@ -56,12 +56,12 @@ export = (() => {
 
         options = options || <Configuration>{round: true};
 
-        let mm = new MMCommand(options.dpi, options.round);
+        let processor = new Processor(options.dpi, options.round);
 
         return (css: IPostCSS) => {
             css.eachDecl((declaration: IPostCSSDeclaration) => {
-                if (MMCommand.REGEXE.test(declaration.value)) {
-                    declaration.value = mm.execute(declaration.value);
+                if (Processor.REGEXE.test(declaration.value)) {
+                    declaration.value = processor.execute(declaration.value);
                 }
             });
         }

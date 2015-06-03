@@ -1,4 +1,4 @@
-# postcss-mm
+# postcss-mm [![Build Status](https://travis-ci.org/furny/postcss-mm.svg?branch=1.0.1)](https://travis-ci.org/furny/postcss-mm)
 
 PostCSS processor for converting `mm` to `px` values
 

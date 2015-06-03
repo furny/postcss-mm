@@ -4,7 +4,7 @@ PostCSS processor for converting `mm` to `px` values
 
 ## Example
 
-Using with gulp-postcss:
+Using with [gulp-postcss](https://github.com/postcss/gulp-postcss):
 
 ```js
 var gulp = require('gulp');

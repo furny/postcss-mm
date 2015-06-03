@@ -1,6 +1,6 @@
 {
   "name": "postcss-mm",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "PostCSS processor for converting `mm` to `px` values",
   "author": "André König <andre.koenig@posteo.de>",
   "scripts": {

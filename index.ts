@@ -1,3 +1,5 @@
+///<reference path='./typings/tsd'/>
+
 /**
  * postcss-mm
  *
@@ -11,9 +13,8 @@
  *
  */
 
-const NAME = 'postcss-mm';
-
 var postcss = require('postcss');
+var pkg = require('./package.json');
 
 interface IPostCSSDeclaration {
     value: string;
@@ -52,7 +53,7 @@ class Processor {
 }
 
 export = (() => {
-    return postcss.plugin(NAME, (options: Configuration) => {
+    return postcss.plugin(pkg.name, (options: Configuration) => {
 
         options = options || <Configuration>{round: true};
 
@@ -60,7 +61,7 @@ export = (() => {
 
         return (css: IPostCSS) => {
             css.eachDecl((declaration: IPostCSSDeclaration) => {
-                if (Processor.REGEXE.test(declaration.value)) {
+                if (declaration.value.match(Processor.REGEXE).length) {
                     declaration.value = processor.execute(declaration.value);
                 }
             });

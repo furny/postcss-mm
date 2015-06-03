@@ -18,7 +18,7 @@ var expect  = require('chai').expect;
 
 var pkg = require('./package.json');
 
-var processor = require('.');
+var processor = require('./');
 
 var test = (input: string, output: string, opts: Object, done: Function) => {
     postcss([processor(opts)]).process(input).then((result) => {

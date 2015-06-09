@@ -19,7 +19,7 @@ gulp.task('css', function () {
         .pipe(postcss(processors) )
         .pipe(gulp.dest('./dist') );
 });
-gulp.task('default',['webp', 'css']);
+gulp.task('default',['css']);
 ```
 
 ## Configuration

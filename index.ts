@@ -22,7 +22,7 @@ interface IPostCSSDeclaration {
 }
 
 interface IPostCSS {
-    eachDecl: Function;
+    walkDecls: Function;
 }
 
 interface Configuration {
@@ -61,7 +61,7 @@ export = (() => {
         let processor = new Processor(options.dpi, options.round);
 
         return (css: IPostCSS) => {
-            css.eachDecl((declaration: IPostCSSDeclaration) => {
+            css.walkDecls((declaration: IPostCSSDeclaration) => {
                 var matches = declaration.value.match(Processor.REGEXE) || [];
 
                 if (matches.length) {

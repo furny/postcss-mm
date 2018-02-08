@@ -15,7 +15,7 @@
     "url": "git@github.com:furny/postcss-mm"
   },
   "dependencies": {
-    "postcss": "^4.1.11"
+    "postcss": "^6.0.17"
   },
   "devDependencies": {
     "chai": "^2.3.0",

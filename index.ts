@@ -31,8 +31,8 @@ interface Configuration {
 }
 
 class Processor {
-
-    static REGEXE = /[0-9]+mm/gi;
+    // https://stackoverflow.com/a/10023879
+    static REGEXE = /\d+?(\.\d+)?mm/gi;
 
     constructor(private dpi = 72, private round = true) {}
 

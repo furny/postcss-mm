@@ -22,7 +22,7 @@ interface IPostCSSDeclaration {
 }
 
 interface IPostCSS {
-    eachDecl: Function;
+    walkDecls: Function;
 }
 
 interface Configuration {
@@ -31,8 +31,8 @@ interface Configuration {
 }
 
 class Processor {
-
-    static REGEXE = /[0-9]+mm/gi;
+    // https://stackoverflow.com/a/10023879
+    static REGEXE = /\d+?(\.\d+)?mm/gi;
 
     constructor(private dpi = 72, private round = true) {}
 
@@ -61,7 +61,7 @@ export = (() => {
         let processor = new Processor(options.dpi, options.round);
 
         return (css: IPostCSS) => {
-            css.eachDecl((declaration: IPostCSSDeclaration) => {
+            css.walkDecls((declaration: IPostCSSDeclaration) => {
                 var matches = declaration.value.match(Processor.REGEXE) || [];
 
                 if (matches.length) {
